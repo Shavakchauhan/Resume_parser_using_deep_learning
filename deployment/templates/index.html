@@ -1,0 +1,47 @@
+<html>
+<body>
+<style>
+  h1
+  {
+  text-align:center;
+  color: red;
+  text-decoration: underline;
+  }
+  label{
+  display: flex;
+  font-size: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+select
+{
+  display: flex;
+  font-size: 1rem;
+  justify-content: left;
+  align-items: left;
+  height: 10%;
+}
+input
+{
+  align-items: right;
+  justify-content: right;
+  font-size: 1rem;
+  margin-top: 15px;
+}
+
+
+</style>
+
+    <h1>Resume parser using deep learning </h1>
+
+
+<div>
+ <form action="/predict_entity" enctype=multipart/form-data method="POST" onsubmit="showDiv('loading')">
+      <br>
+      <input type="file" id="fileSelect" name="file" accept=".pdf">
+      <br>
+      <input type="submit" id="query_submit">
+   </form>
+</div>
+</body>
+</html>
