@@ -13,3 +13,6 @@ The link for trained model is [link to model](https://www.dropbox.com/sh/22yw4b7
 * Then in command line use pip3 install pip install -r requirements.txt
 * Then run python3 main.py
 * And on this  url [link](http://127.0.0.1:5000) you can upload your resume and then the model will give parsed output after sometime so that you will be able to see important keyword in the resume.
+
+### Demo Gif of the Application
+![Demo gif of the application](https://github.com/Shavakchauhan/Resume_parser_using_deep_learning/blob/main/demo_gif.gif)
