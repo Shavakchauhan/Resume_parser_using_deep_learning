@@ -36,7 +36,7 @@ def predict_entity():
     f.save(os.path.join(app.config['UPLOAD_PATH'], filename))
     text = pdf_to_text('uploads/'+filename)    
     entity_dict = NamedEntityService.get_entities(text)
-    df = pd.DataFrame(list(entity_dict.items()))
+    df = pd.DataFrame(list(entity_dict.items()),columns=['text','entity'])
     # df.to_csv('result.csv')
 
     return flask.render_template('result.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
