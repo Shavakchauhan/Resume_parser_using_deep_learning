@@ -28,6 +28,23 @@ input
   font-size: 1rem;
   margin-top: 15px;
 }
+.image-preview {
+  width: 700px;
+  min-height: 700px;
+  border: 2px solid red;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #cccccc;
+
+}
+.image-preview__image{
+  display: none;
+  width: 100%;
+
+}
 
 
 </style>
@@ -40,6 +57,43 @@ input
       <br>
       <input type="file" id="fileSelect" name="file" accept=".pdf">
       <br>
+      <!-- <embed src="/home/shavak/resumeparser/uploads/*.pdf" width="800px" height="2100px" /> -->
+      <div class='image-preview' id='imagepreview'>
+        <!-- <img src="" alt="Image Preview" class="image-preview__image"> -->
+        <embed src="" alt = "Image Preview" class="image-preview__image" width="800px" height="2100px" />
+
+        <span class="image-preview__default-text"> Pdf preview </span>
+
+      </div>
+      <script >
+        const inpFile = document.getElementById("fileSelect");
+        const previewContainer = document.getElementById("imagepreview");
+        const previewImage = previewContainer.querySelector(".image-preview__image");
+        const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
+
+        inpFile.addEventListener("change",function(){
+          const file = this.files[0];
+          if (file){
+            const reader = new FileReader();
+            previewDefaultText.style.display = "none";
+            previewImage.style.display = "block";
+            reader.addEventListener("load",function(){
+              previewImage.setAttribute("src",this.result);
+            });
+            reader.readAsDataURL(file);
+
+          }
+          else{
+            previewDefaultText.style.display = null;
+            previewImage.style.display = null;
+            
+          }
+        });
+
+
+      </script>
+      <br>
+
       <input type="submit" id="query_submit">
    </form>
 </div>
