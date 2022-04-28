@@ -23,3 +23,7 @@ There are seven types of entity possible for a given set of words:
 
 ### Demo Gif of the Application
 ![Demo gif of the application](https://github.com/Shavakchauhan/Resume_parser_using_deep_learning/blob/main/demo_gif.gif)
+
+
+## Blog
+For more detailed information you can visit my blog at ![link](https://medium.com/@shavakchauhan27/resume-parser-using-deep-learning-with-roberta-a7426ae226e1)
