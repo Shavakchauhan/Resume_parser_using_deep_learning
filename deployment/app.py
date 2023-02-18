@@ -38,6 +38,7 @@ def predict_entity():
     entity_dict = NamedEntityService.get_entities(text)
     df = pd.DataFrame(list(entity_dict.items()),columns=['text','entity'])
     # df.to_csv('result.csv')
+    os.remove(os.path.join(app.config['UPLOAD_PATH'],filename))
 
     return flask.render_template('result.html',  tables=[df.to_html(classes='data')], titles=df.columns.values)
 
@@ -46,4 +47,4 @@ def predict_entity():
 
 
 if __name__ == "__main__":
-    app.run(port = 5000, debug=True, threaded=True)
+    app.run(host='0.0.0.0',port = 5000)
