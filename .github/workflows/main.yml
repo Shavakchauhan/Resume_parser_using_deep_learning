@@ -12,7 +12,7 @@ env:
 # Your workflows jobs.
 jobs:
   build_image_push_to_ECR:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@v2
