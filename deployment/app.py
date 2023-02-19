@@ -22,6 +22,7 @@ def pdf_to_text(filepath):
 def preprocess(text):
   text = "".join([s for s in text.splitlines(True) if s.strip("\r\n")])
   # text = re.sub('[^A-Za-z0-9\n]+', ' ', text)
+  s = 1+1
   return text
 
 
