@@ -12,24 +12,24 @@ env:
 # Your workflows jobs.
 jobs:
   build_image_push_to_ECR:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
-      # Check-out your repository.
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure AWS Credentials
+    - name: Checkout
+      uses: actions/checkout@v2
+    # see: https://github.com/aws-actions/configure-aws-credentials
+    - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-1
 
+    # see: https://github.com/aws-actions/amazon-ecr-login
     - name: Log in to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Build, tag, and push image to Amazon ECR
-      id: login-ecr
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         ECR_REPOSITORY: ${{ secrets.REPO_NAME }}
@@ -37,9 +37,4 @@ jobs:
       run: |
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        docker run -d -p 5000:5000 POSITORY:$IMAGE_TAG
-
-
-
-
-
+        docker run -d -p 5000:5000 $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
