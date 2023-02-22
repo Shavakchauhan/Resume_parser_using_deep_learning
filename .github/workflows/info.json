@@ -1,30 +1,30 @@
 {
-    "family": "shavakcontainer",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:325279608847:task-definition/shavakcontainer:2",
     "containerDefinitions": [
         {
-            "name": "resume_docker",
-            "image": "325279608847.dkr.ecr.us-east-1.amazonaws.com/pipes:latest",
+            "name": "dockerapp",
+            "image": "325279608847.dkr.ecr.us-east-1.amazonaws.com/pipes",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "resume_docker-80-tcp",
                     "containerPort": 80,
                     "hostPort": 80,
                     "protocol": "tcp",
+                    "name": "dockerapp-80-tcp",
                     "appProtocol": "http"
                 },
                 {
-                    "name": "resume_docker-5000-tcp",
                     "containerPort": 5000,
                     "hostPort": 5000,
                     "protocol": "tcp",
+                    "name": "dockerapp-5000-tcp",
                     "appProtocol": "http"
                 },
                 {
-                    "name": "resume_docker-8080-tcp",
                     "containerPort": 8080,
                     "hostPort": 8080,
                     "protocol": "tcp",
+                    "name": "dockerapp-8080-tcp",
                     "appProtocol": "http"
                 }
             ],
@@ -44,15 +44,52 @@
             }
         }
     ],
+    "family": "shavakcontainer",
     "executionRoleArn": "arn:aws:iam::325279608847:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
+    ],
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
     "requiresCompatibilities": [
         "FARGATE"
     ],
     "cpu": "1024",
     "memory": "5120",
-    "runtimePlatform": {
-        "cpuArchitecture": "X86_64",
-        "operatingSystemFamily": "LINUX"
-    }
+    "registeredAt": "2023-02-22T22:14:29.919000+05:30",
+    "registeredBy": "arn:aws:iam::325279608847:root"
 }
