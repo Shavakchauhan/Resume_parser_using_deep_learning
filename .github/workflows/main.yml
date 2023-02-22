@@ -45,13 +45,13 @@ jobs:
       with:
         task-definition: .github/workflows/info.json
         container-name: dockerapp
-        image: ${{ steps.build_image.outputs.image }} 
+        image: 325279608847.dkr.ecr.us-east-1.amazonaws.com/pipes:latest 
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: dockerservice
+        service: dockerservices
         cluster: dockercluster
         wait-for-service-stability: true
 
