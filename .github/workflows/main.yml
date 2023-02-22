@@ -45,7 +45,7 @@ jobs:
       with:
         task-definition: info.json
         container-name: resume_docker
-        image: ${{ steps.build-image.outputs.image }}
+        image: ${{ steps.build_image_push_to_ECR.outputs.image }}
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
