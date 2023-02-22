@@ -44,7 +44,7 @@ def predict_entity():
 
   # return Response(json.dumps(entity_dict), status=200, mimetype='application/json')
       
-
+# new change
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0',port = 5000)
