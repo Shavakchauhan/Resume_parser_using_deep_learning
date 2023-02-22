@@ -43,16 +43,15 @@ jobs:
       id: task-def
       uses: aws-actions/amazon-ecs-render-task-definition@v1
       with:
-        task-definition: info.json
-        container-name: resume_docker
-        image: ${{ steps.build_image_push_to_ECR.outputs.image }}
+        task-definition: .github/workflows/info.json
+        container-name: dockerapp
+        image: ${{ steps.build_image.outputs.image }} 
 
     - name: Deploy Amazon ECS task definition
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
         service: dockerservice
-        cluster: dockerforresume
+        cluster: dockercluster
         wait-for-service-stability: true
-
 
