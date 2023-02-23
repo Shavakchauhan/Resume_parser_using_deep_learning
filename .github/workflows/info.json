@@ -1,27 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:325279608847:task-definition/shavakcontainer:4",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:325279608847:task-definition/tasker12:1",
     "containerDefinitions": [
         {
-            "name": "dockerapp",
+            "name": "conter12",
             "image": "325279608847.dkr.ecr.us-east-1.amazonaws.com/pipes:latest",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "dockerapp-80-tcp",
-                    "containerPort": 80,
-                    "hostPort": 80,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                },
-                {
-                    "name": "dockerapp-8080-tcp",
-                    "containerPort": 8080,
-                    "hostPort": 8080,
-                    "protocol": "tcp",
-                    "appProtocol": "http"
-                },
-                {
-                    "name": "dockerapp-5000-tcp",
+                    "name": "conter12-5000-tcp",
                     "containerPort": 5000,
                     "hostPort": 5000,
                     "protocol": "tcp",
@@ -37,18 +23,17 @@
                 "logDriver": "awslogs",
                 "options": {
                     "awslogs-create-group": "true",
-                    "awslogs-group": "/ecs/shavakcontainer",
+                    "awslogs-group": "/ecs/tasker12",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
                 }
             }
         }
     ],
-    "family": "shavakcontainer",
-    "taskRoleArn": "arn:aws:iam::325279608847:role/ecsTaskExecutionRole",
+    "family": "tasker12",
     "executionRoleArn": "arn:aws:iam::325279608847:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
-    "revision": 4,
+    "revision": 1,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -63,9 +48,6 @@
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-        },
-        {
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
         },
         {
             "name": "ecs.capability.execution-role-ecr-pull"
@@ -94,7 +76,7 @@
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-02-22T17:57:28.265Z",
+    "registeredAt": "2023-02-23T11:06:40.523Z",
     "registeredBy": "arn:aws:iam::325279608847:root",
     "tags": []
 }
