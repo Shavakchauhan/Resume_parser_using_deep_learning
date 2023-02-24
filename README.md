@@ -13,16 +13,21 @@ There are seven types of entity possible for a given set of words:
 6. Degree : This represents which degree user has taken for example B.Tech,M.tech,MBA etc
 7. Educ : This represents the college in which user studied.
 
+I have create a docker container so that it can work on any system because i am tired on people saying not working on my system
 
 ## Deployment
-* Create virtual envinronment with python version==3.7.13
-* Then download the generated_model folder(Link is given above) in Deployment folder
-* Then in command line use pip3 install pip install -r requirements.txt
-* Then run python3 main.py
+* docker should be installed in your machine
+* Then download the repo
+* Build the docker file using docker build -t resume_docker . (If it does not work use sudo command)
+* Then run the docker file using docker run -d -p 5000:5000 resume_docker
 * And on this  url [link](http://127.0.0.1:5000) you can upload your resume and then the model will give parsed output after sometime so that you will be able to see important keyword in the resume.
 
 ### Demo Gif of the Application
 ![Demo gif of the application](https://github.com/Shavakchauhan/Resume_parser_using_deep_learning/blob/main/demo_gif.gif)
+
+
+### Ci / CD pipeline 
+Created a complete ci cd pipleine with docker, aws ecs, aws ecr and github actions to automate the workflow of the environment
 
 
 ## Blog
