@@ -1,7 +1,7 @@
 FROM python:3.7.13
 COPY ./deployment/ /app
 WORKDIR /app
-RUN wget --header="Host: uc4837b03cfbf377b8b948df58e8.dl.dropboxusercontent.com" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" --header="Accept-Language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7" --header="Referer: https://www.dropbox.com/" "https://uc4837b03cfbf377b8b948df58e8.dl.dropboxusercontent.com/zip_download_get/Baa-NWGfXLEoOqKx0p4nYr9vWtCmxBofKWWDVNRmLXu4AZILuE3fvu3TyZ67IcUO0LkTuJyMAAQD3vBDhueFK_K8uCnawhaySu0kamqVFIaFkw?_download_id=279721649317638827072911339069398435943567604483652259657293426&_notify_domain=www.dropbox.com&dl=1" -c -O 'generated_model.zip'
+RUN wget --header="Host: uc3dc2f28216a633bcd0d82b6fb9.dl.dropboxusercontent.com" --header="User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36" --header="Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7" --header="Accept-Language: en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7" --header="Referer: https://www.dropbox.com/" "https://uc3dc2f28216a633bcd0d82b6fb9.dl.dropboxusercontent.com/zip_download_get/BagLBSEOI5XFjXFG2Drezu23zua0V40YGlwSbVLyv2VFe3f5LvVgAOlSZd6jsTfSvX1n8O4H3opeeyG99LrlEO9mq8DVz0c-E3Pp99GErPGW3A?_download_id=3937043683049697805345070889568927584682986963268770083674265226&_notify_domain=www.dropbox.com&dl=1" -c -O 'generated_model.zip'
 RUN apt-get update && \
     apt-get install -y wget zip unzip
 RUN unzip generated_model.zip -x /
